@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:white;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000c8;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 0;
+  
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: Green;
+    
+  }
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow:  8px 16px 9px rgba(0, 0, 0, 0.806);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #2dbdf6ca;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .utilnav {
+      overflow: hidden;
+      background-color: rgb(24, 140, 241);
+    }
+    
+    .utilnav:hover {
+      background-color: rgb(121, 151, 184);
+    }
+    /* Style the topnav links */
+    .utilnav a {
+      float: right;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 25px;
+    }
+    
+    /* Change color on hover */
+    .utilnav a:hover {
+      background-color: #23edf7;
+      color: black;
+    }
+  /* Header styles */
+  
+  
+  .logo img {
+      max-width: 100%;
+      height: 130px;
+      border-radius: 50px;
+  
+  }
+  header {
+      background-color:black;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      display: flex;
+      justify-content: column;
+      align-items: center;
+      font-size: 20px;
+      
+  }
+  
+  
+  /*Styling for footer*/
+  footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+#disclaimer{
+
+    font-size: 30px;
+    color: red;
+    font-weight: bolder;
+}
+#devinfo{
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
+}
+
+/*Styling for the video*/
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+    font-size: 45px;
+    position: relative;
+    overflow: hidden;
+    height: 70vh; 
+}
+.video-bg{
+    z-index: -1;
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will make the video stretch to fill the .video-bg div */
+}
+
+
+/*Styling of form page*/
+
+h1 {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+form {
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #c4dee6;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px black;
+}
+
+
+/*Styling for image gallary*/
+#image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.image-container {
+  text-align: center;
+  background-color: rgb(100, 156, 217);
+  color: white;
+  font-weight: bolder;
+  border-radius:8px solid white;
+}
+.image-container img {
+  width: 100%; /* Set a fixed width for all images */
+  height: 40vh;
+}
+.image-description {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #030303;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+
+
+input[type="text"],input[type="number"],input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 3px;
+  font-size: 18px;
+  background-color: rgb(187, 238, 215);
+
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+  background-color: rgb(195, 247, 244);
+  color:black;
+  font-weight: bolder;
+
+}
+
+button[type="submit"] {
+  background-color: rgb(195, 247, 244);
+  color:black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styling for specific elements */
+#title {
+  width: 100%;
+}
+
+/* Customize other form elements as needed */
+
+#movebtn{
+  display: flex;
+  flex-direction: space-between;
+  font-size: 20px;
+  color:white;
+  font-weight: bolder;
+}
+
+#next{
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(162, 232, 170, 0.896);
+  border-radius: 10px;
+  padding: 30px;
+font-size: 22px;
+color: white;
+
+}
+
+#previous{
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(162, 232, 170, 0.896);
+  border-radius: 10px;
+  font-size: 22px;
+  padding: 30px;
+  color: blue;
+}
+#previous:hover{
+  background-color: rgba(15, 225, 40, 0.896);
+}
+#next:hover{
+  background-color: rgba(15, 225, 40, 0.896);
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  padding: 20px;
+}
+#btn{
+  background-color: rgb(200, 23, 223);
+  padding:20px;
+  font-size: 17px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+/*Styling for table form page 2*/
+ table, tr, th, td {
+  align-self: center;
+            border: 3px solid black;
+            align-items: center;
+            text-align: center; 
+margin-left: auto;
+margin-right: auto;   
+padding-bottom: 50px;     
+
+        }
+td{
+    padding: 2px;
+}
+
+.homepage{
+
+  color: Blue;
+  text-align: center;
+  font-size: 30;
+}
+
+
+/*Styling for image gallary*/
+#image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.image-container {
+  text-align: center;
+  background-color: rgb(100, 156, 217);
+  color: white;
+  font-weight: bolder;
+  border-radius:8px solid white;
+}
+.image-container img {
+  width: 100%; /* Set a fixed width for all images */
+  height: 40vh;
+}
+.image-description {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color:black;
+}
+
+/*Responsive design*/
+/* Extra Small (XS) */
+@media (max-width: 576px) {
+  /* CSS styles for Extra Small screens */
+}
+
+/* Small (S) */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* CSS styles for Small screens */
+}
+
+/* Medium (M) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* CSS styles for Medium screens */
+}
+
+/* Large (L) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* CSS styles for Large screens */
+}
+
+/* Extra Large (XL) */
+@media (min-width: 1200px) {
+  /* CSS styles for Extra Large screens */
+}
+
+
+
+/*styling for donation message*/
+#donation{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 30;
+  color: green;
+  text-align: center;
+  font-weight: bolder;
+}
+
+/*Account message styling*/
+#accountmessage,#partner,#newsletter,#contact{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 40;
+  color: green;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#booking,a,#dinning{
+  color: blue;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bolder;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}

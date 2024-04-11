@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chobe Safari Hotel Location</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <style>
+        .hero{
+            height: 100px;
+        }
+        #map {
+            height: 100vh;
+        }
+      
+        body{
+            
+                 background-image: url(E6.jpeg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            
+        }
+    </style>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="utilnav">
+        <a href="Contact.html">Contact</a>
+        <a href="NewLetter.html">Newsletter</a>
+        <a href="AccountPage.html">SignIn/Up</a>
+        <a href="PartnershipPage.html">Partnership</a>
+        <a href="DonationPage.html">Donation</a>
+
+      </div>
+<header>
+      <div class="logo">
+        <img src="e7.jpeg" alt="Hotel Logo">
+    </div>
+<ul>
+<li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Home</a>
+    <div class="dropdown-content">
+      <a href="index.html">Back Home</a>
+      
+
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Room Listing</a>
+    <div class="dropdown-content">
+      <a href="SingleRooms.html">Single Rooms</a>
+      <a href="DoubleRoom.html">Double Rooms</a>
+      <a href="TwinRoom.htm">Twin Rooms</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Hotel Services</a>
+    <div class="dropdown-content">
+      <a href="Dining.html">Breakfast,Lunch & Supper</a>
+      <a href="Conference.html">Conference</a>
+      <a href="SwimmingPool.html">Swimming Pool</a>
+      <a href="Gym.html">Gym,indoor Games & Others.</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Booking & Reservation</a>
+    <div class="dropdown-content">
+      <a href="FormPage1.html">Book Now!</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Tours & Maps</a>
+    <div class="dropdown-content">
+      <a href="VirtualTour.html">Hotel Virtual Tour</a>
+      <a href="Chobe_on_map.html">Hotel Map Location</a>
+      
+    </div>
+  </li>
+</ul>
+</header>
+
+    <h1>Chobe Safari Hotel Location</h1>
+    <p id="maphead">Feel free to zoom in and out.</p>
+
+  </div>
+
+    <div id="map"></div>
+<div class="hero">
+    <h1><a href="http://www.google.com" style="color: white;font-weight:bolder;font-size:50px">Chobe Safari Hotel</a></h1>
+    <video autoplay muted loop class="video-bg">
+        <source height="10px" src="map.mp4" type="video/mp4">
+    </video>
+</div>
+    <script>
+        var map = L.map('map').setView([2.14, 32.14], 5); // Geolocation of Chobe Safari Lodge.
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Set the position of Chobe Safari Lodge
+        const chobeLat = 2.14;
+        const chobeLng = 32.14;
+
+        // Add a marker for Chobe Safari Lodge (fixed position)
+        L.marker([chobeLat, chobeLng], { icon: L.icon({ iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', iconSize: [25, 41], iconAnchor: [12, 41] }) }).addTo(map).bindPopup("Chobe Safari Lodge");
+
+        // Add the equator (reduced brightness red line)
+        L.polyline([[0, -180], [0, 180]], { color: 'rgba(255, 0, 0, 0.6)' }).addTo(map);
+
+        // Simulate user's position (you can replace this with actual geolocation data)
+        navigator.geolocation.watchPosition(success, error);
+
+        let userMarker;
+        let userCircle;
+
+        function success(position) {
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
+
+            if (userMarker) {
+                map.removeLayer(userMarker);
+                map.removeLayer(userCircle);
+            }
+
+            // Add a marker for the user's position
+            userMarker = L.marker([userLat, userLng], { icon: L.icon({ iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png', iconSize: [25, 41], iconAnchor: [12, 41] }) }).addTo(map);
+
+            // Add a circle to represent accuracy
+            userCircle = L.circle([userLat, userLng], { radius: 50, color: 'red', fillOpacity: 0.2 }).addTo(map);
+
+            // Calculate distance between user and Chobe Safari Lodge (you can use a more accurate method)
+            const distance = Math.sqrt((userLat - chobeLat) ** 2 + (userLng - chobeLng) ** 2);
+            const distanceText = `Distance to Chobe Safari Lodge: ${distance.toFixed(2)} units`;
+            document.body.insertAdjacentHTML('beforeend', `<p>${distanceText}</p>`);
+        }
+
+        function error(err) {
+            if (err.code === 1) {
+                alert("Please allow geolocation access!");
+            } else {
+                alert("Cannot get your geolocation!");
+            }
+        }
+
+        // Add a scale to the map
+        L.control.scale().addTo(map);
+
+        // Add a legend (key) for markers
+                // Add a legend (key) for markers
+                const legend = L.control({ position: 'bottomright' });
+                legend.onAdd = function (map) {
+                    const div = L.DomUtil.create('div', 'info legend');
+                    div.innerHTML = `
+                        <img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" alt="School Marker"> Chobe Safari Hotel<br>
+                        <img src="https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" alt="User Marker"> Your Position
+                    `;
+                    return div;
+                };
+                legend.addTo(map);
+        
+                // Add campus directions (example)
+                const directions = L.control({ position: 'topleft' });
+                directions.onAdd = function (map) {
+                    const div = L.DomUtil.create('div', 'info directions');
+                    div.innerHTML = `
+                        <h3>Campus Directions</h3>
+                        <p>Follow the main road to the north for 2 km to reach Chobe Safari Hotel.</p>
+                    `;
+                    return div;
+                };
+                directions.addTo(map);
+            </script>
+
+            <footer>
+    <div class="contact-info">
+        <p>Contact Us:</p>
+        <P>FaceBook whatSapp Email Call</P>
+        <p></p>
+        <p>Phone: +256394-721-528</p>
+        <p>Email:opiyooscar414@gamil.com</p>
+        <p  id="disclaimer" style="font-size: 40;color:rgb(192, 42, 42)">Disclaimer! <br>This web Application has been developed strictly for educational and learning Purposes only and NOT for business use!</p>
+        <p id="devinfo">Developer Information <br>This Web Application has been developed by Eng Opiyo Oscar, a Software Engineering student at Makerere University.Reach out to Eng Opiyo and the team to get our own Web Application today tailored to meet your business needs in order gain competitive advantage in the business world by providing 24/7 customer services and transactions. <br>Contact(call):+256394-721-528. <br>whatsapp:+256756-697-871 <br>Email:opiyooscar414@gmail.com</p>
+        <p>©2024.Internet Programming.All rights Reserved.</p>
+
+        <p></p>
+    </div>
+  
+</footer>
+        </body>
+        </html>
+        
