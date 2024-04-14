@@ -187,7 +187,7 @@ form {
   border-radius:8px solid white;
 }
 .image-container img {
-  width: 100%; /* Set a fixed width for all images */
+  width: 100%; /* Setting a fixed width for all images */
   height: 40vh;
 }
 .image-description {
@@ -252,7 +252,7 @@ button[type="submit"]:hover {
   width: 100%;
 }
 
-/* Customize other form elements as needed */
+/* Customizing other form elements as needed */
 
 #movebtn{
   display: flex;

@@ -16,7 +16,7 @@ function showSlide(index) {
     slides.forEach(slide => {
         slide.classList.remove("displayslide");
     });
-    slides[index].classList.add("displayslide"); // Use the provided index
+    slides[index].classList.add("displayslide"); 
 }
 
 function prevSlide() {
